@@ -3,6 +3,7 @@ import Footer from "../../components/Footer";
 import Header from "../../components/Header";
 import Image from "next/image";
 import parseDate from "../../lib/parseDate";
+import { useRouter } from "next/router";
 
 export async function getStaticPaths() {
   const res = await fetch(
@@ -12,7 +13,7 @@ export async function getStaticPaths() {
   const paths = posts.map((post) => ({ params: { id: post.id.toString() } }));
   return {
     paths,
-    fallback: false,
+    fallback: true,
   };
 }
 
@@ -23,10 +24,17 @@ export async function getStaticProps({ params }) {
   const post = await res.json();
   return {
     props: { post },
+    revalidate: 1,
   };
 }
 
 const DetailPost = ({ post }) => {
+  const router = useRouter();
+
+  if (router.isFallback) {
+    return <div>Loading...</div>;
+  }
+
   return (
     <div>
       <Head>

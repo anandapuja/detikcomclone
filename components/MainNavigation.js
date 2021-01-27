@@ -31,7 +31,7 @@ const MainNavigation = () => {
 
   return (
     <div className="w-full sm:w-4/5 m-0 sm:m-auto mb-4 sm:mb-8">
-      <div className="overflow-x-auto whitespace-nowrap w-full font-bold items-center justify-start bg-gradient-to-r from-blue-900 via-blue-700 to-blue-500 text-white sm:rounded">
+      <div className="overflow-x-auto whitespace-nowrap w-full font-bold items-center justify-start bg-gradient-to-r from-red-900 via-blue-700 to-red-500 text-white sm:rounded">
         <ul>
           {mainNav.map((nav, key) => (
             <li

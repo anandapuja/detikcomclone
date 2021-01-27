@@ -27,7 +27,17 @@ function TopMenu() {
         )}
       </div>
       <div className="font-bold text-gray-500 cursor-pointer">{menu}</div>
-      {menu === "TUTUP" && <CanvasNavigation />}
+      {/* {menu === "TUTUP" && ( */}
+      <div
+        className={
+          menu === "TUTUP"
+            ? "opacity-100 transition duration-300 ease-in-out"
+            : "opacity-0 transition duration-300 ease-in-out"
+        }
+      >
+        <CanvasNavigation />
+      </div>
+      {/* )} */}
     </div>
   );
 }
