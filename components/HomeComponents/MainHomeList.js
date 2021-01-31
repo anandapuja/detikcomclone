@@ -6,7 +6,7 @@ const MainHomeList = ({ posts }) => {
     return date.slice(0, 10).split("-").reverse().join("/");
   };
   return (
-    <div>
+    <>
       {posts.map((p, key) => (
         <Link as={`/posts/${p.id}`} href={`/posts/${p.id}`}>
           <div
@@ -38,7 +38,7 @@ const MainHomeList = ({ posts }) => {
           </div>
         </Link>
       ))}
-    </div>
+    </>
   );
 };
 
